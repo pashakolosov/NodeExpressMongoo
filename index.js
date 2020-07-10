@@ -33,10 +33,10 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/', (req, res) => res.render('index'));
+app.get('/', (req, res) => res.render('index', {title: 'Main page'}));
 
-app.get('/add', (req, res) => res.render('add'));
+app.get('/add', (req, res) => res.render('add', {title: 'add course'}));
 
-app.get('/courses', (req, res) => res.render('courses'));
+app.get('/courses', (req, res) => res.render('courses', { title: 'courses'}));
 
 app.listen(PORT, () => console.log(`server has been started on ${PORT} port`));
