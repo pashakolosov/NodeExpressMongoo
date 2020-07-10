@@ -2,6 +2,10 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const homeRoutes = require('./routes/home');
+const addRoutes = require('./routes/add');
+const coursesRoutes = require('./routes/courses');
+const MiddleWare_serverLog = require('./middleWare/server_log');
 
 
 const app = express();
@@ -18,25 +22,9 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(express.static('public'));
-
-// server.log
-app.use((req, res, next) => {
-    let now = new Date();
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-
-    let data = `${hours}:${minutes}:${seconds} ${req.method} ${req.url} ${req.get('user-agent')}`;
-
-    fs.appendFile('server.log', data + '\n', () => console.log(data));
-    next();
-});
-
-
-app.get('/', (req, res) => res.render('index', {title: 'Main page'}));
-
-app.get('/add', (req, res) => res.render('add', {title: 'add course'}));
-
-app.get('/courses', (req, res) => res.render('courses', { title: 'courses'}));
+app.use(MiddleWare_serverLog);
+app.use(homeRoutes);
+app.use(addRoutes);
+app.use(coursesRoutes);
 
 app.listen(PORT, () => console.log(`server has been started on ${PORT} port`));
