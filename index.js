@@ -23,8 +23,8 @@ app.set('views', 'views');
 
 app.use(express.static('public'));
 app.use(MiddleWare_serverLog);
-app.use(homeRoutes);
-app.use(addRoutes);
-app.use(coursesRoutes);
+app.use('/', homeRoutes);
+app.use('/add', addRoutes);
+app.use('/courses', coursesRoutes);
 
 app.listen(PORT, () => console.log(`server has been started on ${PORT} port`));
