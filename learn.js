@@ -6,11 +6,23 @@
     return sum
 }
 
-console.log(sumAll(9, 3, 4, 5, 3, 23, 6, 1, 'Pasha', 5, 89)) */
+console.log(sumAll(9, 3, 4, 5, 3, 23, 6, 1, 'Pasha', 5, 89)) 
 
 let arr = [1, 3, 4, 5, 2, 5, 6]
 
 console.log(...arr)
 
 console.log(...'Hello')
-console.log(...['Привет, как дела, этот код никто не увидит. Никто не узнает, что у меня 4см'])
+console.log(...['Привет, как дела, этот код никто не увидит. Никто не узнает, что у меня 4см']) */
+
+
+function pow(x ,n) {
+    let sum = 1
+    if (n <= 0) {
+        return sum
+    }
+    return x * pow(x, (n -1))
+    
+}
+
+console.log(pow(2, 3))
