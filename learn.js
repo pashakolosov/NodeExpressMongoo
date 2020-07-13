@@ -25,7 +25,7 @@ function pow(x ,n) {
     
 }
 
-console.log(pow(2, 3)) */
+console.log(pow(2, 3)) 
 
 
 function Person(name, old, country) {
@@ -69,3 +69,4 @@ let pasha = new People('Pasha', 'Kolosov', 'man', ['guitar', 'coding', 'judo'])
 console.log(pasha);
 
 pasha.bio();
+*/
