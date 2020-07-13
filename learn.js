@@ -70,3 +70,23 @@ console.log(pasha);
 
 pasha.bio();
 */
+
+
+let people = new Object({
+    name: 'people',
+    foot: 2,
+    brain: 1,
+    hang: 2,
+    greeting: function() {
+        console.log('hello my name is ' + this.name)
+    }
+})
+
+
+let pasha = Object.create(people);
+
+pasha.greeting();
+
+console.log(pasha.getKey().forEach(element => {
+    console.log(element)
+}))
