@@ -49,4 +49,23 @@ function Person2(name, old, country) {
 let person1 = new Person2('pasha', '22', 'Belarus');
 let person2 = new Person2('masha', 32, 'Russia');
 
-console.log(person1.greeting());
+
+function People(firstName, secondName, gender, interest) {
+    this.name = {
+        first: firstName,
+        second: secondName
+    }
+    this.gender = gender
+    this.interest = interest
+
+    this.greeting = () => console.log(`Hello, my name is ${this.name.first}`)
+
+    this.bio = () => console.log(`Has name is ${this.name.first}, uesrname is ${this.name.second}. Gender is ${this.gender} interest is ${this.interest}`)
+}
+
+
+let pasha = new People('Pasha', 'Kolosov', 'man', ['guitar', 'coding', 'judo'])
+
+console.log(pasha);
+
+pasha.bio();
