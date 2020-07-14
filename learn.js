@@ -87,6 +87,3 @@ let pasha = Object.create(people);
 
 pasha.greeting();
 
-console.log(pasha.getKey().forEach(element => {
-    console.log(element)
-}))

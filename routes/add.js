@@ -9,11 +9,10 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
-    const {body} = req;
+router.post('/', async (req, res) => { 
+    const course = new Course(req.body.title, req.body.price, req.body.img);
     
-    const course = new Course(body.title, body.price, body.img);
-    course.save();
+    await course.save();
 
     res.redirect('/courses');
 });

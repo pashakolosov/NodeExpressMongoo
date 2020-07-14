@@ -10,11 +10,35 @@ class Course {
         this.id = uuidv4();
     };
 
+    toJSON() {
+        return {
+            title: this.title,
+            price: this.price,
+            img: this.img,
+            id: this.id
+        }
+    }
 
     async save() {
         const courses = await Course.getAll();
+        courses.push(this.toJSON());
 
-        console.log('courses', courses);
+        return new Promise((resolve, reject) => {
+            fs.writeFile(
+                path.join(__dirname, '..', 'data', 'courses.json'),
+                JSON.stringify(courses),
+                (err) => {
+                    if (err) {
+                        reject (err);
+                    } else {
+                        resolve();
+                    }
+                }
+            )
+    
+            console.log('courses', courses);
+        })
+       
     }
 
     static getAll() {
