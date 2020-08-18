@@ -60,7 +60,7 @@ class Card {
                     reject(err)
                 }
                 else { 
-                    resolve()
+                    resolve(card)
                 }
             })
         })
