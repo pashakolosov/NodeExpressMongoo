@@ -13,7 +13,9 @@ router.get('/', async (req, res) => {
     const card = await Card.fetch()
     res.render('card', {
         title: 'Card',
-        card
+        courses: card.courses,
+        price: card.price,
+        isCard: true
     })
 })
 
