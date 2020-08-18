@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const homeRoutes = require('./routes/home');
+const cardRoutes = require('./routes/card');
 const addRoutes = require('./routes/add');
 const coursesRoutes = require('./routes/courses');
 const MiddleWare_serverLog = require('./middleWare/server_log');
@@ -27,5 +28,6 @@ app.use(MiddleWare_serverLog);
 app.use('/', homeRoutes);
 app.use('/add', addRoutes);
 app.use('/courses', coursesRoutes);
+app.use('/card', cardRoutes);
 
 app.listen(PORT, () => console.log(`server has been started on ${PORT} port`));
