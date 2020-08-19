@@ -24,12 +24,12 @@ document.querySelectorAll('.price').forEach(node => {
                 const html = card.courses.map(c => {
                     return `
                     <tr>
-                    <td>${c.title}</td>
-                    <td>${c.count}</td>
-                    <td>
-                        <button class="btn btn-small js-remove" data-id="${c.id}">Delete</button>
-                    </td>
-                </tr>
+                        <td>${c.title}</td>
+                        <td>${c.count}</td>
+                        <td>
+                            <button class="btn btn-small js-remove" data-id="${c.id}">Delete</button>
+                        </td>
+                    </tr>
                     `
                 }).join('')
                 $card.querySelector('tbody').innerHTML = html
